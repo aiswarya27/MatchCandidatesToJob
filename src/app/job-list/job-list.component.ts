@@ -10,27 +10,27 @@ import { Job } from '../Model/Job';
 })
 export class JobListComponent implements OnInit {
   public jobListDetails: Job[];
-  public selectedJob:Job;
+  public selectedJob: Job;
   private serviceSubscription: Subscription;
-  private ErrorMessage:any;
-  constructor(private jobListService:JobListService) { }
+  private ErrorMessage: any;
+  constructor(private jobListService: JobListService) { }
 
   ngOnInit() {
 
-    this.serviceSubscription=this.jobListService.getJobList().subscribe({
-      next:jobList=> {
-       this.jobListDetails = jobList;       
-    },
-      error:err=>this.ErrorMessage=err
+    this.serviceSubscription = this.jobListService.getJobList().subscribe({
+      next: jobList => {
+        this.jobListDetails = jobList;
+      },
+      error: err => this.ErrorMessage = err
     });
   }
-  
-  ngOnDestroy(){
+
+  ngOnDestroy() {
     this.serviceSubscription.unsubscribe();
   }
 
-  OnJobSelected(){    
-  
+  OnJobSelected() {
+
   }
 
 }
