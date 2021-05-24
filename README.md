@@ -7,8 +7,8 @@ If any candidate contains a skill the recruiter is searching for the candidate d
 
 Build the solution:
 -------------------------
-1.Download the solution
-2.run npm install
+1.Download the solution.
+2.run npm install.
 3. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 
