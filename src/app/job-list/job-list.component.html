@@ -1,5 +1,6 @@
+<label>Select a job  </label>
 <select [(ngModel)]="selectedJob" (ngModelChange)="OnJobSelected()"> 
-  <option>Choose oppo suit</option>
+  <option>Choose Job </option>
   <option *ngFor="let job of jobListDetails" [ngValue]="job">{{job.name}}</option>
 </select>
 
