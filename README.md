@@ -4,8 +4,12 @@ Two services are defines within the solution whic would be resposible for fetchi
 
 Brief description of how to match candidate to a job:
 If any candidate contains a skill the recruiter is searching for the candidate details would be displayed.
-**
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+Build the solution:
+-------------------------
+1.Download the solution
+2.run npm install
+3. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 
 **
