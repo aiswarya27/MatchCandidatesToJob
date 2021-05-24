@@ -14,7 +14,12 @@ export class JobListService{
 
     }
     getJobList():Observable<Job[]>{
-        return this.http.get<Job[]>(this.jobListUrl);    
+        return this.http.get<Job[]>(this.jobListUrl).pipe(map((data:any)=> {                               
+                    return  data.map((item:any)=> new Job(item.id,item.name,
+                        item.company,item.skills.split(',')
+                    ))
+                }       
+            ));               
     }
 }
 

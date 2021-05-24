@@ -1,3 +1,16 @@
-<p>
-  candidate-list works!
-</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Candidate Id</th>
+            <th>Candidate Name</th>
+            <th>Skills</th>           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let candidate of this.filteredCandidateList">
+          <td>{{candidate.id}}</td>                    
+            <td>{{candidate.name}}</td>
+            <td>{{candidate.skillTags[0]}}</td>              
+        </tr>
+    </tbody>
+</table>

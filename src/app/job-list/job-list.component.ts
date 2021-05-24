@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { JobListService } from '../Services/JobListService';
+import { Job } from '../Model/Job';
 
 @Component({
   selector: 'app-job-list',
@@ -8,15 +9,21 @@ import { JobListService } from '../Services/JobListService';
   styleUrls: ['./job-list.component.css']
 })
 export class JobListComponent implements OnInit {
-
+  public jobListDetails: Job[];
+  public selectedJob:Job;
   private serviceSubscription: Subscription;
   private ErrorMessage:any;
   constructor(private jobListService:JobListService) { }
 
   ngOnInit() {
+
     this.serviceSubscription=this.jobListService.getJobList().subscribe({
       next:jobList=> {
-        console.log(jobList); 
+       this.jobListDetails = jobList; 
+       console.log(this.jobListDetails);
+      //  this.jobListDetails.forEach(element => {
+      //   console.log(element.name);
+      //  });
     },
       error:err=>this.ErrorMessage=err
     });
@@ -24,6 +31,11 @@ export class JobListComponent implements OnInit {
   
   ngOnDestroy(){
     this.serviceSubscription.unsubscribe();
+  }
+
+  OnJobSelected(){
+    //console.log(this.selectedJob.skills);
+  
   }
 
 }

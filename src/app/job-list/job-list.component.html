@@ -1,3 +1,8 @@
-<p>
-  job-list works!
-</p>
+<select [(ngModel)]="selectedJob" (ngModelChange)="OnJobSelected()"> 
+  <option>Choose oppo suit</option>
+  <option *ngFor="let job of jobListDetails" [ngValue]="job">{{job.name}}</option>
+</select>
+
+ <div *ngIf="selectedJob != null">
+  <app-candidate-list [skillsSetRequiredForJob] ="selectedJob.skills"></app-candidate-list>
+  </div> 

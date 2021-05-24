@@ -14,12 +14,11 @@ export class CandidateService{
 
     }
     getCandidateList():Observable<Candidate[]>{
-        return this.http.get<Candidate[]>(this.candidateListUrl);
-    //     .pipe(map((data:any)=> {                               
-    //         return  data.map((item:any)=> new Candidate(item.candidateId,item.name,
-    //             item.skillTags))
-    //     }       
-    // ));
+        return this.http.get<Candidate[]>(this.candidateListUrl).pipe(map((data:any)=> {                               
+            return  data.map((item:any)=> new Candidate(item.candidateId,item.name,
+                item.skillTags.split(',')))
+        }       
+    ));
     }
 }
 

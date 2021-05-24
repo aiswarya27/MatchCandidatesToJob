@@ -4,6 +4,6 @@ export class Job {
         public id:number,
         public name:string,
         public company:string,
-        public skillTags:string[]
+        public skills:string[]
     ){}
 }
