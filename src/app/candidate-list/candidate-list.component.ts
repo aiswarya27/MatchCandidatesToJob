@@ -34,8 +34,7 @@ export class CandidateListComponent implements OnInit,OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.skillsSetRequiredForJob && changes.skillsSetRequiredForJob.currentValue&&this.candidateList) {
-      console.log(changes.skillsSetRequiredForJob.currentValue);     
+    if (changes.skillsSetRequiredForJob && changes.skillsSetRequiredForJob.currentValue&&this.candidateList) {         
       this.filterCandidatesBasedOnSkills(); 
     }
   }
@@ -44,16 +43,16 @@ export class CandidateListComponent implements OnInit,OnDestroy {
     this.serviceSubscription.unsubscribe();
   }
 
-  filterCandidatesBasedOnSkills(){
-    //this.skillsSetRequiredForJob.every(jobSkills=>)
-    this.filteredCandidateList = this.candidateList.filter(x => x.skillTags.some(candidateSkill=>
-                              this.skillsSetRequiredForJob.indexOf(candidateSkill)>0));
-    
-     console.log(this.filteredCandidateList);
-  
+  filterCandidatesBasedOnSkills(){             
+      this.filteredCandidateList  = this.candidateList.map(candidate=>
+      {
+        return{
+          id:candidate.id,
+          name: candidate.name,
+          skillTags: candidate.skillTags.filter(x=>this.skillsSetRequiredForJob.indexOf(x)>0),
 
-    
-
+        }
+      }).filter(candidates=>candidates.skillTags.length>0).sort((a,b)=>(a.skillTags.length>b.skillTags.length?-1:1));                                                                  
   }
 
 }

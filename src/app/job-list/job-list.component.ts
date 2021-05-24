@@ -19,11 +19,7 @@ export class JobListComponent implements OnInit {
 
     this.serviceSubscription=this.jobListService.getJobList().subscribe({
       next:jobList=> {
-       this.jobListDetails = jobList; 
-       console.log(this.jobListDetails);
-      //  this.jobListDetails.forEach(element => {
-      //   console.log(element.name);
-      //  });
+       this.jobListDetails = jobList;       
     },
       error:err=>this.ErrorMessage=err
     });
@@ -33,8 +29,7 @@ export class JobListComponent implements OnInit {
     this.serviceSubscription.unsubscribe();
   }
 
-  OnJobSelected(){
-    //console.log(this.selectedJob.skills);
+  OnJobSelected(){    
   
   }
 
